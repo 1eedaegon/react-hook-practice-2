@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { UserContext } from "./context";
+import { useAuth } from "./context";
 import Header from "./Header";
 
 const Screen = () => {
-    const { logInUser, logOutUser } = useContext(UserContext)
+    const { logInUser, logOutUser } = useAuth();
     return (
         <div>
             <Header />
