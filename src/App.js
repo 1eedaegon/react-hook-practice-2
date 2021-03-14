@@ -1,17 +1,16 @@
-import { useState } from "react";
-import UserContextProvider from "./context";
+
 import Screen from "./Screen";
+import LangProvider from "./LangContext";
+import translations from "./translation";
 
 const App = () => {
   // States and Props
-  const [user] = useState({
-    name: "1eedaegon"
-  })
+
   // Render components
   return (
-    <UserContextProvider>
+    <LangProvider defaultLang="en" translations={translations}>
       <Screen />
-    </UserContextProvider>
+    </LangProvider>
   );
 }
 

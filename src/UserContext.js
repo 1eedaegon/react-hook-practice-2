@@ -8,7 +8,7 @@ const UserContextProvider = ({ children }) => {
         loggedIn: false
     });
     const logInUser = () => setUser({ ...user, loggedIn: true })
-    const logOutUser = () => setUser({ ...user, loggedIn: false })
+    const logOutUser = () => setUser({ ...user, loggedOut: false })
     return (
         <UserContext.Provider value={{ user, auth: { logInUser, logOutUser } }}>
             {children}
@@ -20,8 +20,7 @@ export const useUser = () => {
     return user;
 }
 export const useAuth = () => {
-    const { auth } = useContext(UserContext);
+    const { auth } = useContext(UserContext)
     return auth;
-
 }
 export default UserContextProvider;

@@ -1,17 +1,13 @@
-import { useContext } from "react";
-import { useAuth } from "./context";
-import Header from "./Header";
+import React from "react"
+import { useSetLang, useT } from "./LangContext"
 
-const Screen = () => {
-    const { logInUser, logOutUser } = useAuth();
+export default () => {
+    const setLang = useSetLang()
+    const t = useT();
     return (
-        <div>
-            <Header />
-            <h2>Hello world!</h2>
-            <button onClick={logInUser}>Log in user</button>
-            <button onClick={logOutUser}>Log out user</button>
-        </div>
+        <main>
+            <h1>{t("Hello")}!</h1>
+            <button onClick={() => setLang("es")}>{t("Translate")}</button>
+        </main>
     )
 }
-
-export default Screen
